@@ -1,0 +1,36 @@
+// SimpleCalculator
+
+#include <iostream>
+#include "Calculator.h"
+using namespace std;
+
+int main()
+{
+	double a;
+	double b;
+	double result;
+	char oper = '+';
+
+	Calculator c;
+
+	cout << "Calculator Console Application" << endl << endl;
+	cout << "Please enter the operation to perform. Format a+b | a-b | a*b | a/b" << endl;
+	while (true)
+	{
+		cin >> a;
+		cin >> oper;
+		cin >> b;
+
+		result = c.Calculate(a, oper, b);
+
+		if (b == 0 && oper == '/')
+		{
+			cout << "Math Error: Attempted to divide by zero!" << endl;
+		}
+		else
+		{
+			cout << "Result of " << a << oper << b << " = " << result << endl;
+		}
+	}	
+	return 0;
+}
